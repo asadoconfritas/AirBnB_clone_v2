@@ -5,8 +5,19 @@ from datetime import datetime
 
 
 class BaseModel:
-    """A base class for all hbnb models"""
+    """A base class for all hbnb models
+
+    Attributes:
+        id (sqlalchemy String): The BaseModel id.
+        created_at (sqlalchemy DateTime): The datetime at creation.
+        updated_at (sqlalchemy DateTime): The datetime of last update.
+    """
+
+    id = Column(String(60), primary_key=True, nullable=False)
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
+    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow())
     def __init__(self, *args, **kwargs):
+
         """Instatntiates a new model"""
         if not kwargs:
             from models import storage
@@ -42,3 +53,7 @@ class BaseModel:
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
         return dictionary
+
+    def delete(self):
+        """delete the current instance from the storage"""
+        models.storage.delete(self)
