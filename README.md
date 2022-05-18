@@ -1,6 +1,7 @@
 <center> <h1>HBNB - The Console</h1> </center>
 
 ---
+a
 <center><h3>Repository Contents by Project Task</h3> </center>
 
 | Tasks | Files | Description |
