@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-py3 flask web app
+py3 flask web app.
 """
 
 from flask import Flask
